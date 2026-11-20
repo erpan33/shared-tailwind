@@ -496,6 +496,50 @@
     transform: translateY(-3px);
 }
 
+.theme-card-secondary {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, color-mix(in srgb, var(--color-secondary) 80%, #000000) 100%);
+    color: var(--color-on-secondary);
+    border-radius: 20px;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-secondary) 26%, transparent);
+    transition: transform var(--transition-smooth);
+}
+.theme-card-secondary:hover {
+    transform: translateY(-3px);
+}
+
+.theme-card-warning {
+    background: linear-gradient(135deg, var(--color-warning) 0%, color-mix(in srgb, var(--color-warning) 84%, #d97706) 100%);
+    color: var(--color-on-warning);
+    border-radius: 20px;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-warning) 26%, transparent);
+    transition: transform var(--transition-smooth);
+}
+.theme-card-warning:hover {
+    transform: translateY(-3px);
+}
+
+.theme-card-success {
+    background: linear-gradient(135deg, var(--color-success) 0%, color-mix(in srgb, var(--color-success) 82%, #047857) 100%);
+    color: var(--color-on-success);
+    border-radius: 20px;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-success) 26%, transparent);
+    transition: transform var(--transition-smooth);
+}
+.theme-card-success:hover {
+    transform: translateY(-3px);
+}
+
+.theme-card-info {
+    background: linear-gradient(135deg, var(--color-info) 0%, color-mix(in srgb, var(--color-info) 82%, #0369a1) 100%);
+    color: var(--color-on-info);
+    border-radius: 20px;
+    box-shadow: 0 10px 24px color-mix(in srgb, var(--color-info) 26%, transparent);
+    transition: transform var(--transition-smooth);
+}
+.theme-card-info:hover {
+    transform: translateY(-3px);
+}
+
 .theme-icon-box {
     width: 42px;
     height: 42px;
