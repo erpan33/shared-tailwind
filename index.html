@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shared Design System - 60-30-10 Theme</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-wrapper">
+        <div class="app-shell">
+
+            <!-- 30% SIDEBAR WITH CURVED ACTIVE NOTCH -->
+            <aside class="sidebar" aria-label="Sidebar Navigation">
+                <a href="#dashboard" class="brand-logo" title="Design System">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V9.5z"/>
+                    </svg>
+                </a>
+
+                <nav class="sidebar-menu">
+                    <a href="#dashboard" class="menu-item active" title="Dashboard">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="7" height="7" x="3" y="3" rx="1.5"/>
+                            <rect width="7" height="7" x="14" y="3" rx="1.5"/>
+                            <rect width="7" height="7" x="14" y="14" rx="1.5"/>
+                            <rect width="7" height="7" x="3" y="14" rx="1.5"/>
+                        </svg>
+                    </a>
+
+                    <a href="#components" class="menu-item" title="Components">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
+                        </svg>
+                    </a>
+
+                    <a href="#tokens" class="menu-item" title="Design Tokens">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            <circle cx="12" cy="11" r="2"/>
+                        </svg>
+                    </a>
+
+                    <a href="#colors" class="menu-item" title="Color Palette">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/>
+                            <circle cx="8.5" cy="9.5" r="1" fill="currentColor"/>
+                            <circle cx="12" cy="7.5" r="1" fill="currentColor"/>
+                            <circle cx="15.5" cy="9.5" r="1" fill="currentColor"/>
+                        </svg>
+                    </a>
+
+                    <a href="#team" class="menu-item" title="Contributors">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </a>
+
+                    <a href="#analytics" class="menu-item" title="Usage Stats">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" x2="18" y1="20" y2="10"/>
+                            <line x1="12" x2="12" y1="20" y2="4"/>
+                            <line x1="6" x2="6" y1="20" y2="14"/>
+                        </svg>
+                    </a>
+                </nav>
+
+                <button type="button" class="sidebar-logout" title="Keluar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                        <polyline points="16 17 21 12 16 7"/>
+                        <line x1="21" x2="9" y1="12" y2="12"/>
+                    </svg>
+                </button>
+            </aside>
+
+            <!-- 60% BASE WORKSPACE -->
+            <div class="workspace-grid">
+
+                <!-- CENTER COLUMN -->
+                <main class="center-column" id="dashboard">
+
+                    <!-- SEARCH BAR -->
+                    <div class="search-bar-wrap">
+                        <div class="search-input-box">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                            </svg>
+                            <input type="text" placeholder="Search components, colors, tokens...">
+                        </div>
+                    </div>
+
+                    <!-- 10% ACCENT HERO BANNER -->
+                    <section class="hero-banner">
+                        <div class="hero-content">
+                            <h1>Hello, Revan!</h1>
+                            <p class="hero-subtitle">Welcome back! Semua warna pada antarmuka ini dikendalikan penuh dari satu file <code>theme.css</code>.</p>
+
+                            <div class="hero-meta">
+                                <div class="hero-meta-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                        <path d="M12 2v20M2 12h20"/>
+                                    </svg>
+                                    <strong>24 Components</strong>
+                                    <span>Modular UI ready</span>
+                                </div>
+                                <div class="hero-meta-item">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                                        <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+                                    </svg>
+                                    <span>Single-File Theme v2.0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Vector Illustration (Otomatis ikut CSS Variable) -->
+                        <div class="hero-illustration" aria-hidden="true">
+                            <svg viewBox="0 0 200 150" fill="none">
+                                <circle cx="135" cy="78" r="52" style="fill: var(--color-base); opacity: 0.45;" />
+                                <rect x="78" y="34" width="76" height="92" rx="14" style="fill: var(--color-primary);" />
+                                <rect x="88" y="48" width="56" height="10" rx="5" style="fill: var(--color-base);" />
+                                <rect x="88" y="66" width="38" height="8" rx="4" style="fill: var(--color-accent);" />
+                                <rect x="88" y="84" width="56" height="28" rx="8" style="fill: var(--color-base);" />
+                                <circle cx="104" cy="98" r="6" style="fill: var(--color-primary);" />
+                                <rect x="115" y="94" width="22" height="8" rx="4" style="fill: var(--color-accent);" />
+                                <circle cx="58" cy="108" r="17" style="fill: var(--color-base);" />
+                                <path d="M43 134c0-11 30-11 30 0" style="fill: var(--color-primary);" />
+                            </svg>
+                        </div>
+                    </section>
+
+                    <!-- SYSTEM OVERVIEW (4 INTERACTIVE CARDS) -->
+                    <section class="overview-section" id="components">
+                        <div class="section-header">
+                            <h2>Design System Overview</h2>
+                            <div class="section-controls">
+                                <span class="metric-chip">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                                    3 Core Colors
+                                </span>
+                                <span class="metric-chip">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg>
+                                    1-File Control
+                                </span>
+                                <button type="button" class="dropdown-pill">
+                                    Design Tokens
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="control-cards-grid">
+                            <div class="control-card" data-card>
+                                <div class="control-top">
+                                    <span class="state-text">ON</span>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="control-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18"/></svg>
+                                </div>
+                                <h3>Components</h3>
+                            </div>
+
+                            <div class="control-card is-active" data-card>
+                                <div class="control-top">
+                                    <span class="state-text">ON</span>
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="control-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                                </div>
+                                <h3>Theme Palette</h3>
+                            </div>
+
+                            <div class="control-card" data-card>
+                                <div class="control-top">
+                                    <span class="state-text">OFF</span>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="control-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><polyline points="4 7 4 4 20 4 20 7"/><line x1="9" x2="15" y1="20" y2="20"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
+                                </div>
+                                <h3>Typography</h3>
+                            </div>
+
+                            <div class="control-card" data-card>
+                                <div class="control-top">
+                                    <span class="state-text">OFF</span>
+                                    <label class="switch">
+                                        <input type="checkbox">
+                                        <span class="slider"></span>
+                                    </label>
+                                </div>
+                                <div class="control-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/></svg>
+                                </div>
+                                <h3>60-30-10 Rule</h3>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- COLOR PALETTE PANEL (TERHUBUNG OTOMATIS KE theme.css) -->
+                    <section class="palette-panel" id="colors">
+                        <div class="palette-header">
+                            <div class="palette-title">
+                                <span class="palette-badge-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+                                </span>
+                                <div>
+                                    <h3>60-30-10 Color System</h3>
+                                    <small>Kode HEX terbaca otomatis dari <code>theme.css</code> — klik untuk menyalin</small>
+                                </div>
+                            </div>
+
+                            <div class="palette-toggle">
+                                <span>SYNC</span>
+                                <label class="switch switch-theme">
+                                    <input type="checkbox" checked>
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="color-rule-grid">
+                            <button type="button" class="swatch-rule-btn swatch-60" data-var="--color-base">
+                                <div class="swatch-rule-top">
+                                    <span class="ratio-tag">60% BASE</span>
+                                    <code data-hex-label>#FFFFFF</code>
+                                </div>
+                                <strong>Base Color</strong>
+                                <small>Dasar Workspace &amp; Kartu</small>
+                            </button>
+
+                            <button type="button" class="swatch-rule-btn swatch-30" data-var="--color-primary">
+                                <div class="swatch-rule-top">
+                                    <span class="ratio-tag">30% PRIMARY</span>
+                                    <code data-hex-label>#5C7057</code>
+                                </div>
+                                <strong>Primary Color</strong>
+                                <small>Sidebar Menu &amp; Kontrol Utama</small>
+                            </button>
+
+                            <button type="button" class="swatch-rule-btn swatch-10" data-var="--color-accent">
+                                <div class="swatch-rule-top">
+                                    <span class="ratio-tag">10% ACCENT</span>
+                                    <code data-hex-label>#89A482</code>
+                                </div>
+                                <strong>Accent Color</strong>
+                                <small>Banner, Highlight &amp; Grafik</small>
+                            </button>
+                        </div>
+                    </section>
+
+                </main>
+
+                <!-- RIGHT SIDE PANEL -->
+                <aside class="right-panel">
+
+                    <!-- TOP PROFILE & UTILITY -->
+                    <div class="right-topbar">
+                        <button type="button" class="util-btn" aria-label="Settings">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+                        </button>
+                        <button type="button" class="util-btn" aria-label="Notifications">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>
+                            <span class="dot-alert"></span>
+                        </button>
+                        <div class="profile-pill">
+                            <div class="profile-avatar">R</div>
+                            <span>Revan</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
+                        </div>
+                    </div>
+
+                    <!-- QUICK MODULES -->
+                    <section class="right-section" id="tokens">
+                        <div class="right-section-header">
+                            <h3>UI Modules</h3>
+                            <div class="mini-actions">
+                                <span class="mini-pill">ON ⌄</span>
+                                <button type="button" class="circle-arrow">›</button>
+                            </div>
+                        </div>
+
+                        <div class="modules-grid">
+                            <div class="module-card bg-primary-theme">
+                                <div class="module-top">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M8 12h8"/></svg>
+                                    <div class="module-switch"><span>ON</span><span class="knob"></span></div>
+                                </div>
+                                <strong>Buttons</strong>
+                            </div>
+
+                            <div class="module-card bg-accent-theme">
+                                <div class="module-top">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 7 4 4 20 4 20 7"/><line x1="12" x2="12" y1="4" y2="20"/></svg>
+                                    <div class="module-switch"><span>ON</span><span class="knob"></span></div>
+                                </div>
+                                <strong>Typography</strong>
+                            </div>
+
+                            <div class="module-card bg-accent-theme">
+                                <div class="module-top">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="18" height="7" rx="1"/></svg>
+                                    <div class="module-switch"><span>ON</span><span class="knob"></span></div>
+                                </div>
+                                <strong>Cards &amp; Grid</strong>
+                            </div>
+
+                            <div class="module-card bg-primary-theme">
+                                <div class="module-top">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+                                    <div class="module-switch"><span>ON</span><span class="knob"></span></div>
+                                </div>
+                                <strong>Icons &amp; Tag</strong>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- CONTRIBUTORS -->
+                    <section class="right-section" id="team">
+                        <div class="right-section-header">
+                            <h3>Contributors</h3>
+                            <button type="button" class="circle-arrow">›</button>
+                        </div>
+
+                        <div class="members-card">
+                            <div class="member-item">
+                                <div class="member-avatar avatar-primary">R</div>
+                                <strong>Revan</strong>
+                                <small>Admin</small>
+                            </div>
+                            <div class="member-item">
+                                <div class="member-avatar avatar-accent">A</div>
+                                <strong>Arfan</strong>
+                                <small>UI Design</small>
+                            </div>
+                            <div class="member-item">
+                                <div class="member-avatar avatar-white">S</div>
+                                <strong>Sofia</strong>
+                                <small>Frontend</small>
+                            </div>
+                            <div class="member-item">
+                                <div class="member-avatar avatar-accent">Y</div>
+                                <strong>Yasmin</strong>
+                                <small>System</small>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- USAGE CHART -->
+                    <section class="right-section" id="analytics">
+                        <div class="right-section-header">
+                            <h3>Token Usage</h3>
+                            <div class="mini-actions">
+                                <span class="mini-pill">Month ⌄</span>
+                                <button type="button" class="circle-arrow">›</button>
+                            </div>
+                        </div>
+
+                        <div class="chart-card">
+                            <div class="chart-meta">
+                                <span><i class="dot-primary"></i> Components Used</span>
+                                <strong>73% Coverage</strong>
+                            </div>
+
+                            <svg class="area-chart" viewBox="0 0 260 95" fill="none">
+                                <defs>
+                                    <linearGradient id="themeGrad" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" style="stop-color: var(--color-accent); stop-opacity: 0.65;" />
+                                        <stop offset="100%" style="stop-color: var(--color-base); stop-opacity: 0;" />
+                                    </linearGradient>
+                                </defs>
+                                <path d="M10 72 C 35 55, 50 68, 75 52 C 100 36, 120 50, 145 34 C 170 18, 195 42, 220 22 C 235 12, 245 18, 252 15 L 252 85 L 10 85 Z" fill="url(#themeGrad)"/>
+                                <path d="M10 72 C 35 55, 50 68, 75 52 C 100 36, 120 50, 145 34 C 170 18, 195 42, 220 22 C 235 12, 245 18, 252 15" style="stroke: var(--color-primary);" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+
+                            <div class="chart-labels">
+                                <span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span>
+                            </div>
+                        </div>
+                    </section>
+
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <!-- COPY TOAST -->
+    <div id="copy-toast" class="copy-toast" role="status" aria-live="polite">
+        <span id="toast-dot" class="toast-dot"></span>
+        <span id="toast-text">HEX copied!</span>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>

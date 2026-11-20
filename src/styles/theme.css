@@ -1,0 +1,85 @@
+/* =====================================
+   PUSAT KONTROL WARNA (EDIT DI SINI SAJA)
+   Aturan 60% Dasar | 30% Utama | 10% Aksen
+===================================== */
+
+:root {
+    /* 1. UBAH 3 WARNA UTAMA DI SINI */
+    --color-base: #ffffff;      /* 60% Warna Dasar (Latar & Kartu) */
+    --color-primary: #0F828C;   /* 30% Warna Utama (Sidebar & Kontrol Aktif) */
+    --color-accent: #5daba5;    /* 10% Warna Aksen (Banner, Sorotan & Grafik) */
+
+    /* 2. WARNA TEKS DI ATAS PRIMARY & ACCENT */
+    --color-on-primary: #ffffff;
+    --color-on-accent: #ffffff; /* Ubah ke #0f172a jika memakai warna aksen yang sangat terang */
+
+    /* 3. WARNA TURUNAN OTOMATIS (TIDAK PERLU DIUBAH MANUAL) */
+    --color-canvas: color-mix(in srgb, var(--color-primary) 5%, var(--color-base));
+    --color-border: color-mix(in srgb, var(--color-primary) 16%, var(--color-base));
+    --color-primary-tint: color-mix(in srgb, var(--color-primary) 18%, var(--color-base));
+    --color-accent-tint: color-mix(in srgb, var(--color-accent) 25%, transparent);
+
+    --color-heading: #1c241a;
+    --color-body: #394436;
+    --color-muted: #6c7869;
+
+    --shadow-shell: 0 24px 60px -15px color-mix(in srgb, var(--color-primary) 15%, transparent);
+    --shadow-card: 0 6px 24px color-mix(in srgb, var(--color-primary) 8%, transparent);
+    --shadow-active: 0 12px 26px color-mix(in srgb, var(--color-primary) 30%, transparent);
+
+    --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@theme {
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --color-base-white: var(--color-base);
+    --color-base-canvas: var(--color-canvas);
+    --color-brand-primary: var(--color-primary);
+    --color-brand-accent: var(--color-accent);
+
+    --radius-shell: 28px;
+    --radius-card: 18px;
+    --radius-button: 10px;
+}
+
+@layer base {
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        margin: 0;
+        font-family: var(--font-sans);
+        background: var(--color-canvas);
+        color: var(--color-heading);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    ::selection {
+        background: var(--color-accent);
+        color: var(--color-on-accent);
+    }
+}

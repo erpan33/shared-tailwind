@@ -1,12 +1,24 @@
+
 {
   "name": "shared-tailwind",
   "version": "1.0.0",
-  "main": "tailwind.config.js",
+  "type": "module",
+  "main": "./src/main.js",
   "files": [
     "tailwind.config.js",
-    "components.css"
+    "src/styles"
   ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "peerDependencies": {
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^4.3.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8"
   }
 }
