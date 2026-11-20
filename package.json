@@ -13,9 +13,9 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "peerDependencies": {
-    "tailwindcss": "^4.3.5"
-  },
+ "peerDependencies": {
+  "tailwindcss": "^3.0.0 || ^4.0.0"
+},
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.5",
     "tailwindcss": "^4.3.5",

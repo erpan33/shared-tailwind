@@ -23,28 +23,22 @@
     --color-body: #394436;
     --color-muted: #6c7869;
 
-    --shadow-shell: 0 24px 60px -15px color-mix(in srgb, var(--color-primary) 15%, transparent);
-    --shadow-card: 0 6px 24px color-mix(in srgb, var(--color-primary) 8%, transparent);
-    --shadow-active: 0 12px 26px color-mix(in srgb, var(--color-primary) 30%, transparent);
-
-    /* Kurva Animasi Mulus */
-    --transition-smooth: 260ms cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-slide: 420ms cubic-bezier(0.22, 1, 0.36, 1);
-    --transition-spring: 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-@theme {
+    /* 4. FONT, RADIUS & BAYANGAN */
     --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
-
-    --color-base-white: var(--color-base);
-    --color-base-canvas: var(--color-canvas);
-    --color-brand-primary: var(--color-primary);
-    --color-brand-accent: var(--color-accent);
 
     --radius-shell: 28px;
     --radius-card: 18px;
     --radius-button: 10px;
+
+    --shadow-shell: 0 24px 60px -15px color-mix(in srgb, var(--color-primary) 15%, transparent);
+    --shadow-card: 0 6px 24px color-mix(in srgb, var(--color-primary) 8%, transparent);
+    --shadow-active: 0 12px 26px color-mix(in srgb, var(--color-primary) 30%, transparent);
+
+    /* 5. KURVA ANIMASI MULUS */
+    --transition-smooth: 260ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slide: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-spring: 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @layer base {
