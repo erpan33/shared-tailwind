@@ -1,5 +1,5 @@
 /* ==========================================
-   APP SHELL (FLEKSIBEL PENUH DI LAYAR LAPTOP)
+   APP SHELL (60% DASAR PUTIH / CANVAS BERSIH)
 ========================================== */
 .app-wrapper {
     min-height: 100vh;
@@ -15,7 +15,7 @@
 }
 
 /* ==========================================
-   30% SIDEBAR (ADAPTIF UKURAN LAYAR LAPTOP)
+   30% SIDEBAR (GRADASI #1680ff -> #0758dc)
 ========================================== */
 .sidebar {
     width: clamp(212px, 16.5vw, 246px);
@@ -23,7 +23,7 @@
     height: 100vh;
     position: sticky;
     top: 0;
-    background: var(--color-primary);
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-on-primary);
     border-radius: 0 24px 24px 0;
     padding: clamp(14px, 2vh, 20px) 0 clamp(14px, 2vh, 18px) 12px;
@@ -42,7 +42,6 @@
     justify-content: flex-start;
     gap: 11px;
     width: 100%;
-    height: auto;
     padding: 4px 14px 4px 4px;
     margin: 0 0 clamp(14px, 2.2vh, 22px) 0;
     color: var(--color-on-primary);
@@ -56,11 +55,11 @@
     height: 38px;
     border-radius: 11px;
     background: var(--color-base);
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     display: grid;
     place-items: center;
     flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 12px rgba(7, 88, 220, 0.25);
     transition: transform var(--transition-spring);
 }
 
@@ -88,10 +87,9 @@
     background: var(--color-canvas);
     border-radius: 13px 0 0 13px;
     z-index: 1;
-    opacity: 0;
     pointer-events: none;
     will-change: transform;
-    transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 150ms ease;
+    transition: transform var(--transition-slide), height 220ms ease, opacity 150ms ease;
 }
 
 .sidebar-indicator::before {
@@ -154,7 +152,7 @@
 }
 
 .menu-item:hover:not(.active) {
-    background: color-mix(in srgb, var(--color-base) 14%, transparent);
+    background: color-mix(in srgb, var(--color-base) 16%, transparent);
 }
 
 .menu-item:hover:not(.active) svg,
@@ -163,7 +161,7 @@
 }
 
 .menu-item.active {
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
     font-weight: 700;
 }
 
@@ -172,9 +170,41 @@
     transform: scale(1.1);
 }
 
-/* Sorotan Khusus Menu Scan QR (tanpa margin tambahan agar jarak tetap 46px) */
+/* Sorotan Khusus Menu Scan QR (Lebih Besar & Warna Aksen Harmonis) */
+.menu-item.menu-scan {
+    height: 50px;
+    margin: 6px 0;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+}
+
+.menu-item.menu-scan i,
+.menu-item.menu-scan svg {
+    font-size: 17px;
+    width: 22px;
+}
+
 .menu-item.menu-scan:not(.active) {
-    background: color-mix(in srgb, var(--color-accent) 32%, transparent);
+    width: calc(100% - 12px);
+    margin-right: 12px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-info) 100%);
+    color: var(--color-on-accent);
+    border: 1.5px solid color-mix(in srgb, var(--color-base) 32%, transparent);
+    box-shadow: 0 8px 18px rgba(7, 88, 220, 0.35);
+}
+
+.menu-item.menu-scan:not(.active):hover {
+    filter: brightness(1.06);
+    transform: translateX(2px);
+}
+
+.menu-item.menu-scan.active {
+    width: 100%;
+    margin-right: 0;
+    background: transparent;
+    color: var(--color-primary-dark);
 }
 
 .sidebar-logout-form {
@@ -190,7 +220,7 @@
     padding: 0 14px;
     margin: 0;
     border: none;
-    background: color-mix(in srgb, var(--color-base) 12%, transparent);
+    background: color-mix(in srgb, var(--color-base) 14%, transparent);
     color: var(--color-on-primary);
     border-radius: 12px;
     display: flex;
@@ -204,8 +234,8 @@
 }
 
 .sidebar-logout:hover {
-    background: #dc2626;
-    color: #ffffff;
+    background: var(--color-danger);
+    color: var(--color-on-danger);
     transform: translateX(2px);
 }
 
@@ -234,7 +264,7 @@
 }
 
 .search-input-box:focus-within {
-    box-shadow: 0 0 0 3px var(--color-accent-tint);
+    box-shadow: 0 0 0 3px var(--color-primary-tint);
     border-color: var(--color-primary);
 }
 
@@ -261,7 +291,7 @@
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
     color: var(--color-on-primary);
     display: grid;
     place-items: center;
@@ -271,10 +301,151 @@
 }
 
 /* ==========================================
-   KARTU & KOMPONEN TEMA (OTOMATIS IKUT THEME.CSS)
+   SISTEM TOMBOL 10 WARNA (SIAP PAKAI DI SEMUA HALAMAN)
+========================================== */
+.btn-theme {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: var(--radius-button);
+    font-size: 13.5px;
+    font-weight: 600;
+    border: 1.5px solid transparent;
+    transition: all var(--transition-smooth);
+}
+
+.btn-theme:hover {
+    transform: translateY(-1.5px);
+}
+
+.btn-theme:active {
+    transform: translateY(0);
+}
+
+/* 1. Base White */
+.btn-base {
+    background: var(--color-base);
+    color: var(--color-heading);
+    border-color: var(--color-border);
+}
+.btn-base:hover {
+    background: var(--color-canvas);
+    border-color: var(--color-primary);
+}
+
+/* 2. Primary (#1680ff) */
+.btn-primary {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-primary) 28%, transparent);
+}
+.btn-primary:hover {
+    background: var(--color-primary-dark);
+}
+
+/* 3. Primary Dark (#0758dc) */
+.btn-primary-dark {
+    background: var(--color-primary-dark);
+    color: var(--color-on-primary);
+}
+.btn-primary-dark:hover {
+    filter: brightness(1.1);
+}
+
+/* 4. Accent (#00b4d8) */
+.btn-accent {
+    background: var(--color-accent);
+    color: var(--color-on-accent);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-accent) 26%, transparent);
+}
+.btn-accent:hover {
+    filter: brightness(0.94);
+}
+
+/* 5. Secondary (#4f46e5) */
+.btn-secondary {
+    background: var(--color-secondary);
+    color: var(--color-on-secondary);
+}
+.btn-secondary:hover {
+    filter: brightness(0.92);
+}
+
+/* 6. Success (#10b981 - Simpan/Setuju) */
+.btn-success {
+    background: var(--color-success);
+    color: var(--color-on-success);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-success) 25%, transparent);
+}
+.btn-success:hover {
+    filter: brightness(0.93);
+}
+
+/* 7. Warning (#f59e0b - Edit/Pending) */
+.btn-warning {
+    background: var(--color-warning);
+    color: var(--color-on-warning);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-warning) 25%, transparent);
+}
+.btn-warning:hover {
+    filter: brightness(0.94);
+}
+
+/* 8. Danger (#ef4444 - Hapus/Batal) */
+.btn-danger {
+    background: var(--color-danger);
+    color: var(--color-on-danger);
+    box-shadow: 0 6px 16px color-mix(in srgb, var(--color-danger) 25%, transparent);
+}
+.btn-danger:hover {
+    filter: brightness(0.92);
+}
+
+/* 9. Info (#0284c7 - Detail/Cetak) */
+.btn-info {
+    background: var(--color-info);
+    color: var(--color-on-info);
+}
+.btn-info:hover {
+    filter: brightness(0.93);
+}
+
+/* 10. Neutral (#64748b - Kembali/Tutup) */
+.btn-neutral {
+    background: var(--color-neutral);
+    color: var(--color-on-neutral);
+}
+.btn-neutral:hover {
+    filter: brightness(0.92);
+}
+
+/* Varian Soft & Outline */
+.btn-soft-primary {
+    background: var(--color-primary-tint);
+    color: var(--color-primary-dark);
+}
+.btn-soft-primary:hover {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+.btn-outline-primary {
+    background: var(--color-base);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+.btn-outline-primary:hover {
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+}
+
+/* ==========================================
+   KARTU & BANNER TEMA (OTOMATIS IKUT THEME.CSS)
 ========================================== */
 .theme-banner {
-    background: var(--color-primary);
+    background: linear-gradient(125deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-on-primary);
     border-radius: 22px;
     padding: clamp(20px, 2.4vw, 28px) clamp(22px, 2.8vw, 32px);
@@ -284,7 +455,7 @@
 }
 
 .theme-banner p {
-    color: color-mix(in srgb, var(--color-on-primary) 88%, transparent);
+    color: color-mix(in srgb, var(--color-on-primary) 90%, transparent);
 }
 
 .theme-card-base {
@@ -298,11 +469,11 @@
 
 .theme-card-base:hover {
     transform: translateY(-3px);
-    border-color: var(--color-accent);
+    border-color: var(--color-primary);
 }
 
 .theme-card-primary {
-    background: var(--color-primary);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
     color: var(--color-on-primary);
     border-radius: 20px;
     box-shadow: var(--shadow-active);
@@ -314,7 +485,7 @@
 }
 
 .theme-card-accent {
-    background: var(--color-accent);
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-info) 100%);
     color: var(--color-on-accent);
     border-radius: 20px;
     box-shadow: var(--shadow-card);
@@ -340,8 +511,8 @@
     border-radius: 12px;
     display: grid;
     place-items: center;
-    background: var(--color-accent-tint);
-    color: var(--color-primary);
+    background: var(--color-primary-tint);
+    color: var(--color-primary-dark);
 }
 
 .theme-pill-badge {
@@ -357,33 +528,68 @@
     font-weight: 700;
     padding: 4px 10px;
     border-radius: 999px;
-    background: var(--color-accent-tint);
-    color: var(--color-primary);
+    background: var(--color-primary-tint);
+    color: var(--color-primary-dark);
 }
 
 /* ==========================================
-   OTOMATIS UBAH WARNA UNGU LAMA (#6C5DD3) KE TEMA
+   PENYELARASAN OTOMATIS CLASS TOMBOL & WARNA BAWAAN
 ========================================== */
-.bg-\[\#6C5DD3\] {
+.bg-\[\#6C5DD3\],
+.bg-indigo-600,
+.bg-purple-600,
+.bg-blue-600 {
     background-color: var(--color-primary) !important;
     color: var(--color-on-primary) !important;
 }
 
 .hover\:bg-\[\#5a4cb8\]:hover,
-.hover\:bg-\[\#6C5DD3\]\/90:hover {
-    background-color: color-mix(in srgb, var(--color-primary) 88%, #000000) !important;
+.hover\:bg-indigo-700:hover,
+.hover\:bg-purple-700:hover,
+.hover\:bg-blue-700:hover {
+    background-color: var(--color-primary-dark) !important;
 }
 
-.text-\[\#6C5DD3\] {
+.bg-emerald-600,
+.bg-green-600 {
+    background-color: var(--color-success) !important;
+    color: var(--color-on-success) !important;
+}
+
+.bg-amber-500,
+.bg-yellow-500 {
+    background-color: var(--color-warning) !important;
+    color: var(--color-on-warning) !important;
+}
+
+.bg-red-600 {
+    background-color: var(--color-danger) !important;
+    color: var(--color-on-danger) !important;
+}
+
+.bg-sky-500,
+.bg-cyan-500 {
+    background-color: var(--color-accent) !important;
+    color: var(--color-on-accent) !important;
+}
+
+.text-\[\#6C5DD3\],
+.text-indigo-600,
+.text-purple-600,
+.text-blue-600 {
     color: var(--color-primary) !important;
 }
 
-.border-\[\#6C5DD3\] {
+.border-\[\#6C5DD3\],
+.border-indigo-600,
+.border-blue-600 {
     border-color: var(--color-primary) !important;
 }
 
-.focus\:ring-\[\#6C5DD3\]:focus {
-    --tw-ring-color: var(--color-accent) !important;
+.focus\:ring-\[\#6C5DD3\]:focus,
+.focus\:ring-indigo-500:focus,
+.focus\:ring-blue-500:focus {
+    --tw-ring-color: var(--color-primary) !important;
 }
 
 /* RESPONSIVE TABLET / LAYAR KECIL */
@@ -406,6 +612,12 @@
     .menu-item {
         justify-content: center;
         padding: 0 8px 0 0;
+    }
+
+    .menu-item.menu-scan:not(.active) {
+        width: calc(100% - 8px);
+        margin-right: 8px;
+        padding: 0;
     }
 
     .sidebar-logout-form {
