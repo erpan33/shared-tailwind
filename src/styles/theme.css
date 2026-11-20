@@ -11,9 +11,9 @@
 
     /* 2. WARNA TEKS DI ATAS PRIMARY & ACCENT */
     --color-on-primary: #ffffff;
-    --color-on-accent: #ffffff; /* Ubah ke #0f172a jika memakai warna aksen yang sangat terang */
+    --color-on-accent: #ffffff; /* Ubah ke #0f172a jika memakai warna aksen terang */
 
-    /* 3. WARNA TURUNAN OTOMATIS (TIDAK PERLU DIUBAH MANUAL) */
+    /* 3. WARNA TURUNAN OTOMATIS */
     --color-canvas: color-mix(in srgb, var(--color-primary) 5%, var(--color-base));
     --color-border: color-mix(in srgb, var(--color-primary) 16%, var(--color-base));
     --color-primary-tint: color-mix(in srgb, var(--color-primary) 18%, var(--color-base));
@@ -27,7 +27,10 @@
     --shadow-card: 0 6px 24px color-mix(in srgb, var(--color-primary) 8%, transparent);
     --shadow-active: 0 12px 26px color-mix(in srgb, var(--color-primary) 30%, transparent);
 
-    --transition-smooth: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    /* Kurva Animasi Mulus */
+    --transition-smooth: 260ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slide: 420ms cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-spring: 380ms cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @theme {

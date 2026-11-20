@@ -21,7 +21,7 @@
 }
 
 /* ==========================================
-   30% SIDEBAR & CURVED ACTIVE NOTCH
+   30% SIDEBAR & ANIMASI SLIDING NOTCH
 ========================================== */
 .sidebar {
     width: 78px;
@@ -33,6 +33,7 @@
     align-items: center;
     flex-shrink: 0;
     position: relative;
+    z-index: 20;
 }
 
 .brand-logo {
@@ -44,44 +45,38 @@
     display: grid;
     place-items: center;
     color: var(--color-on-primary);
-    transition: transform var(--transition-smooth);
+    transition: transform var(--transition-spring), background var(--transition-smooth);
 }
 
 .brand-logo:hover {
-    transform: scale(1.08);
+    transform: scale(1.1) rotate(-4deg);
+    background: color-mix(in srgb, var(--color-base) 14%, transparent);
 }
 
 .sidebar-menu {
+    position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.menu-item {
-    position: relative;
+/* Indikator Putih Meluncur (Sliding Curved Notch) */
+.sidebar-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 52px;
-    padding-right: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--color-on-primary);
-    border-radius: 16px 0 0 16px;
-    transition: color var(--transition-smooth), background var(--transition-smooth);
-}
-
-.menu-item:hover:not(.active) {
-    background: color-mix(in srgb, var(--color-base) 16%, transparent);
-}
-
-/* Tab Aktif dengan Lekukan Kurva Atas & Bawah */
-.menu-item.active {
     background: var(--color-base);
-    color: var(--color-primary);
+    border-radius: 16px 0 0 16px;
+    z-index: 1;
+    pointer-events: none;
+    will-change: transform;
+    transition: transform var(--transition-slide), height 250ms ease;
 }
 
-.menu-item.active::before {
+.sidebar-indicator::before {
     content: "";
     position: absolute;
     top: -18px;
@@ -91,10 +86,9 @@
     background: transparent;
     border-bottom-right-radius: 18px;
     box-shadow: 6px 6px 0 6px var(--color-base);
-    pointer-events: none;
 }
 
-.menu-item.active::after {
+.sidebar-indicator::after {
     content: "";
     position: absolute;
     bottom: -18px;
@@ -104,7 +98,75 @@
     background: transparent;
     border-top-right-radius: 18px;
     box-shadow: 6px -6px 0 6px var(--color-base);
+}
+
+.menu-item {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 52px;
+    padding-right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-on-primary);
+    border-radius: 16px 0 0 16px;
+    transition: color 300ms ease;
+}
+
+.menu-item svg {
+    transition: transform var(--transition-spring);
+}
+
+/* Efek Hover pada Menu Tidak Aktif */
+.menu-item:hover:not(.active) svg {
+    transform: translateX(3px) scale(1.08);
+}
+
+/* Warna & Skala Ikon Saat Menu Aktif */
+.menu-item.active {
+    color: var(--color-primary);
+}
+
+.menu-item.active svg {
+    transform: scale(1.14);
+}
+
+/* Tooltip Melayang Saat Hover */
+.menu-tooltip {
+    position: absolute;
+    left: calc(100% + 12px);
+    top: 50%;
+    transform: translateY(-50%) translateX(-6px);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 9px;
+    white-space: nowrap;
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    visibility: hidden;
     pointer-events: none;
+    transition: opacity 200ms ease, transform 240ms cubic-bezier(0.22, 1, 0.36, 1), visibility 200ms;
+}
+
+.menu-tooltip::before {
+    content: "";
+    position: absolute;
+    left: -4px;
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+    width: 8px;
+    height: 8px;
+    background: var(--color-primary);
+}
+
+.menu-item:hover .menu-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
 }
 
 .sidebar-logout {
@@ -118,11 +180,12 @@
     border-radius: 14px;
     display: grid;
     place-items: center;
-    transition: all var(--transition-smooth);
+    transition: transform var(--transition-spring), background var(--transition-smooth);
 }
 
 .sidebar-logout:hover {
     background: color-mix(in srgb, var(--color-base) 16%, transparent);
+    transform: translateX(2px);
 }
 
 /* ==========================================
@@ -136,6 +199,22 @@
     padding: 12px 14px 12px 16px;
     min-width: 0;
     background: var(--color-base);
+}
+
+/* Animasi Halus Saat Section Dituju */
+.section-highlight {
+    animation: sectionPulse 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes sectionPulse {
+    0% {
+        opacity: 0.7;
+        transform: translateY(6px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* CENTER COLUMN */
@@ -489,7 +568,6 @@
     opacity: 0.9;
 }
 
-/* 60% Base Swatch */
 .swatch-60 {
     background: var(--color-base);
     border: 1.5px solid var(--color-accent);
@@ -500,7 +578,6 @@
     color: var(--color-on-accent);
 }
 
-/* 30% Primary Swatch */
 .swatch-30 {
     background: var(--color-primary);
     border: 1.5px solid var(--color-primary);
@@ -511,7 +588,6 @@
     color: var(--color-on-primary);
 }
 
-/* 10% Accent Swatch */
 .swatch-10 {
     background: var(--color-accent);
     border: 1.5px solid var(--color-accent);
@@ -860,6 +936,10 @@
         padding-left: 8px;
     }
 
+    .menu-item {
+        padding-right: 8px;
+    }
+
     .control-cards-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -870,5 +950,14 @@
 
     .hero-illustration {
         display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
     }
 }

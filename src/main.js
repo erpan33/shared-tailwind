@@ -1,12 +1,46 @@
 import './styles/theme.css';
 import './styles/components.css';
 
-// 1. Perpindahan tab aktif melengkung (curved notch) di sidebar
+// 1. Animasi Sliding Curved Notch pada Sidebar Menu
 const menuItems = document.querySelectorAll('.menu-item');
+const indicator = document.getElementById('sidebar-indicator');
+
+function moveSidebarIndicator(targetItem) {
+    if (!indicator || !targetItem) return;
+    indicator.style.height = `${targetItem.offsetHeight}px`;
+    indicator.style.transform = `translateY(${targetItem.offsetTop}px)`;
+}
+
+// Posisikan indikator pada menu aktif saat halaman pertama dimuat
+const initialActive = document.querySelector('.menu-item.active');
+if (initialActive) {
+    moveSidebarIndicator(initialActive);
+}
+
+// Sesuaikan ulang posisi indikator jika ukuran layar berubah
+window.addEventListener('resize', () => {
+    const currentActive = document.querySelector('.menu-item.active');
+    if (currentActive) {
+        moveSidebarIndicator(currentActive);
+    }
+});
+
 menuItems.forEach((item) => {
     item.addEventListener('click', () => {
         menuItems.forEach((el) => el.classList.remove('active'));
         item.classList.add('active');
+        moveSidebarIndicator(item);
+
+        // Berikan efek transisi halus pada bagian konten yang dituju
+        const targetId = item.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.classList.remove('section-highlight');
+                void targetSection.offsetWidth; // trigger reflow agar animasi ulang berjalan
+                targetSection.classList.add('section-highlight');
+            }
+        }
     });
 });
 

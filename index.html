@@ -13,7 +13,7 @@
     <div class="app-wrapper">
         <div class="app-shell">
 
-            <!-- 30% SIDEBAR WITH CURVED ACTIVE NOTCH -->
+            <!-- 30% SIDEBAR WITH SMOOTH SLIDING CURVED NOTCH -->
             <aside class="sidebar" aria-label="Sidebar Navigation">
                 <a href="#dashboard" class="brand-logo" title="Design System">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -21,53 +21,62 @@
                     </svg>
                 </a>
 
-                <nav class="sidebar-menu">
-                    <a href="#dashboard" class="menu-item active" title="Dashboard">
+                <nav class="sidebar-menu" id="sidebar-menu">
+                    <!-- Indikator Meluncur Otomatis -->
+                    <div class="sidebar-indicator" id="sidebar-indicator" aria-hidden="true"></div>
+
+                    <a href="#dashboard" class="menu-item active">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect width="7" height="7" x="3" y="3" rx="1.5"/>
                             <rect width="7" height="7" x="14" y="3" rx="1.5"/>
                             <rect width="7" height="7" x="14" y="14" rx="1.5"/>
                             <rect width="7" height="7" x="3" y="14" rx="1.5"/>
                         </svg>
+                        <span class="menu-tooltip">Dashboard</span>
                     </a>
 
-                    <a href="#components" class="menu-item" title="Components">
+                    <a href="#components" class="menu-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2z"/>
                         </svg>
+                        <span class="menu-tooltip">Components</span>
                     </a>
 
-                    <a href="#tokens" class="menu-item" title="Design Tokens">
+                    <a href="#tokens" class="menu-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                             <circle cx="12" cy="11" r="2"/>
                         </svg>
+                        <span class="menu-tooltip">UI Modules</span>
                     </a>
 
-                    <a href="#colors" class="menu-item" title="Color Palette">
+                    <a href="#colors" class="menu-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.93 0 1.65-.75 1.65-1.69 0-.44-.18-.84-.44-1.13-.29-.29-.44-.65-.44-1.13a1.64 1.64 0 0 1 1.67-1.67h2c3.05 0 5.56-2.5 5.56-5.55C21.97 6.01 17.46 2 12 2z"/>
                             <circle cx="8.5" cy="9.5" r="1" fill="currentColor"/>
                             <circle cx="12" cy="7.5" r="1" fill="currentColor"/>
                             <circle cx="15.5" cy="9.5" r="1" fill="currentColor"/>
                         </svg>
+                        <span class="menu-tooltip">Color System</span>
                     </a>
 
-                    <a href="#team" class="menu-item" title="Contributors">
+                    <a href="#team" class="menu-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
                             <circle cx="9" cy="7" r="4"/>
                             <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
                             <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
                         </svg>
+                        <span class="menu-tooltip">Contributors</span>
                     </a>
 
-                    <a href="#analytics" class="menu-item" title="Usage Stats">
+                    <a href="#analytics" class="menu-item">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="18" x2="18" y1="20" y2="10"/>
                             <line x1="12" x2="12" y1="20" y2="4"/>
                             <line x1="6" x2="6" y1="20" y2="14"/>
                         </svg>
+                        <span class="menu-tooltip">Usage Stats</span>
                     </a>
                 </nav>
 
@@ -119,7 +128,6 @@
                             </div>
                         </div>
 
-                        <!-- Vector Illustration (Otomatis ikut CSS Variable) -->
                         <div class="hero-illustration" aria-hidden="true">
                             <svg viewBox="0 0 200 150" fill="none">
                                 <circle cx="135" cy="78" r="52" style="fill: var(--color-base); opacity: 0.45;" />
@@ -214,7 +222,7 @@
                         </div>
                     </section>
 
-                    <!-- COLOR PALETTE PANEL (TERHUBUNG OTOMATIS KE theme.css) -->
+                    <!-- COLOR PALETTE PANEL -->
                     <section class="palette-panel" id="colors">
                         <div class="palette-header">
                             <div class="palette-title">
