@@ -69,11 +69,13 @@
 }
 
 .sidebar-menu {
+    --menu-height: 42px;
+    --menu-gap: 4px;
     position: relative;
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: clamp(2px, 0.45vh, 5px);
+    gap: var(--menu-gap);
 }
 
 /* Indikator Putih Meluncur (Sliding Curved Notch) */
@@ -82,13 +84,14 @@
     top: 0;
     left: 0;
     right: 0;
-    height: clamp(36px, 4.7vh, 42px);
+    height: var(--menu-height);
     background: var(--color-canvas);
     border-radius: 13px 0 0 13px;
     z-index: 1;
+    opacity: 0;
     pointer-events: none;
     will-change: transform;
-    transition: transform var(--transition-slide), height 220ms ease, opacity 200ms ease;
+    transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 150ms ease;
 }
 
 .sidebar-indicator::before {
@@ -119,7 +122,8 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    height: clamp(36px, 4.7vh, 42px);
+    height: var(--menu-height);
+    margin: 0;
     padding: 0 14px;
     display: flex;
     flex-direction: row;
@@ -130,7 +134,7 @@
     font-size: clamp(12.5px, 0.95vw, 13.5px);
     font-weight: 500;
     border-radius: 13px 0 0 13px;
-    transition: color 260ms ease, background 220ms ease;
+    transition: color 240ms ease, background 200ms ease;
 }
 
 .menu-item svg,
@@ -168,10 +172,9 @@
     transform: scale(1.1);
 }
 
-/* Sorotan Khusus Menu Scan QR */
+/* Sorotan Khusus Menu Scan QR (tanpa margin tambahan agar jarak tetap 46px) */
 .menu-item.menu-scan:not(.active) {
     background: color-mix(in srgb, var(--color-accent) 32%, transparent);
-    margin-top: 4px;
 }
 
 .sidebar-logout-form {
@@ -183,7 +186,7 @@
 
 .sidebar-logout {
     width: 100%;
-    height: clamp(36px, 4.6vh, 42px);
+    height: 42px;
     padding: 0 14px;
     margin: 0;
     border: none;
